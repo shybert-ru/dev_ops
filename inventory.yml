@@ -1,0 +1,29 @@
+all_hosts:
+  hosts:  
+    host1:
+      ansible_user: #Пользователь ansible добавленный в sudoers
+      ansible_ssh_password: #Пароль от пользователя
+      ansible_host: #IP на котором будет расположен бот и база данных
+
+    host2:
+      ansible_host: #IP на котором будет расположена реплика базы данных
+      ansible_user: #Пользователь ansible добавленный в sudoers
+      ansible_ssh_password: #Пароль от пользователя
+  vars:
+    DB_REPL_HOST: #IP на котором будет расположена реплика базы данных
+    DB_REPL_USER: repl_user
+    DB_REPL_PASSWORD: Qq12345
+    DB_REPL_PORT: 5432
+    POSTGRES_VERSION: 14
+    DB_HOST: #IP на котором будет расположен бот и база данных
+    DB_PORT: 5432
+    DB_USER: postgres
+    DB_PASSWORD: Qq12345
+    DB_DATABASE: db_main
+    GIT: https://github.com/shybert-ru/dev_ops.git
+    WORKDIR: /root/ansible  
+    TOKEN: #Токен бота
+    RM_HOST: #IP на котором будет расположен бот и база данных
+    RM_PORT: 22 
+    RM_USER: #Пользователь SSH, можно юзера ansible
+    RM_PASSWORD: #Пароль SSH, можно юзера ansible
