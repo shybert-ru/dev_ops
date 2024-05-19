@@ -11,17 +11,17 @@ logging.basicConfig(
 
 dotenv.load_dotenv()
 
-DB_NAME = os.getenv('DB_NAME')
+DB_DATABASE = os.getenv('DB_DATABASE')
 DB_USER = os.getenv('DB_USER')
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
 
 def exec_command_ssh(command):
-    host = os.getenv('HOST')
-    port = os.getenv('PORT')
-    username = os.getenv('USER')
-    password = os.getenv('PASSWORD')
+    host = os.getenv('RM_HOST')
+    port = os.getenv('RM_PORT')
+    username = os.getenv('RM_USER')
+    password = os.getenv('RM_PASSWORD')
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -40,7 +40,7 @@ def get_row_from_table(table_name):
                                         password=DB_PASSWORD,
                                         host=DB_HOST,
                                         port=DB_PORT, 
-                                        database=DB_NAME)
+                                        database=DB_DATABASE)
 
         cursor = connection.cursor()
 
@@ -67,7 +67,7 @@ def insert_to_table_info(table_name, column,data):
                                         password=DB_PASSWORD,
                                         host=DB_HOST,
                                         port=DB_PORT, 
-                                        database=DB_NAME)
+                                        database=DB_DATABASE)
 
         cursor = connection.cursor()
 
@@ -91,7 +91,7 @@ def check_to_exists_table(table_name,column,string):
                                         password=DB_PASSWORD,
                                         host=DB_HOST,
                                         port=DB_PORT, 
-                                        database=DB_NAME)
+                                        database=DB_DATABASE)
 
         cursor = connection.cursor()
 
