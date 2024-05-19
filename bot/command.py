@@ -193,7 +193,7 @@ def get_services_command(update: Update, context):
 
 
 def get_repl_logs_command(update: Update, context):
-    command = f"echo {os.getenv('RM_PASSWORD')} | sudo -S docker logs db | grep repl | head -n 30" 
+    command = f"cat /var/log/postgresql/* | grep repl | head -n 30" 
     result = exec_command_ssh(command)
     update.message.reply_text(result)
 
