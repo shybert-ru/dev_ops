@@ -1,13 +1,13 @@
 import logging
 import re
 from command import *
-
+import os,dotenv
 from telegram import Update, ForceReply
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
 
+dotenv.load_dotenv()
 
-TOKEN = "7161875757:AAE-mgXXVFXHB0XrUJqdUY2b-v3d5gSGqsQ"
-
+TOKEN = os.getenv('TOKEN')
 
 # Подключаем логирование
 logging.basicConfig(
