@@ -176,7 +176,7 @@ def get_ss_command(update: Update, context):
 def get_apt_list_command(update: Update, context):
     command = update.message.text
     if len(command.split()) == 1:
-        result = exec_command_ssh("apt list | head -n 30")
+        result = exec_command_ssh("apt list --installed | head -n 30")
         update.message.reply_text(f"Первые 30 установленных пакетов в системе: \n\n{result}")
     else:
         arg = update.message.text.split()[1]
